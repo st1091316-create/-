@@ -1,0 +1,150 @@
+/* 全域頁面樣式 */
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: #05080f;
+    color: #4cc9ff;
+    cursor: crosshair;
+}
+
+/* 雷達掃描背景效果 */
+body::before {
+    content: '';
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 150, 255, 0.08), transparent 60%);
+    animation: radar 12s linear infinite;
+    z-index: -2;
+}
+
+/* 背景雷達旋轉動畫 */
+@keyframes radar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 掃描線背景 */
+body::after {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 150, 255, 0.05),
+        rgba(0, 150, 255, 0.05) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+    z-index: -1;
+}
+
+/* 滑鼠光暈效果 */
+.cursor-glow {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 150, 255, 0.3), transparent);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+/* 準星樣式 */
+.crosshair {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+    z-index: 9998;
+}
+
+/* 準星的水平與垂直線條 */
+.crosshair::before,
+.crosshair::after {
+    content: '';
+    position: absolute;
+    background-color: #4cc9ff;
+}
+
+.crosshair::before {
+    width: 2px;
+    height: 20px;
+    left: 9px;
+}
+
+.crosshair::after {
+    width: 20px;
+    height: 2px;
+    top: 9px;
+}
+
+/* 介面樣式 */
+header {
+    font-size: 15px;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #4cc9ff;
+}
+
+/* 主內容寬度與間距 */
+.container {
+    padding: 40px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* 可重複使用的內容卡片 */
+.card {
+    border: 1px solid #4cc9ff;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: rgba(0, 150, 255, 0.05);
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.2);
+    transition: 0.2s;
+}
+
+/* 卡片滑過時的放大效果 */
+.card:hover {
+    transform: scale(1.03);
+}
+
+/* 內嵌影片尺寸 */
+iframe {
+    width: 100%;
+    height: 400px;
+}
+
+/* 按鈕樣式連結 */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #4cc9ff;
+    border: 1px solid #4cc9ff;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+/* 頁尾樣式 */
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #4cc9ff;
+    color: #777;
+}
+
+/* 點擊閃光效果 */
+.click-flash {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(0, 150, 255, 0.8), transparent);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+}
